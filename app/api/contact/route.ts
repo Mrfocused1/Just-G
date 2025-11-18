@@ -1,5 +1,3 @@
-import nodemailer from 'nodemailer'
-
 export async function POST(request: Request) {
   try {
     const { name, email, message } = await request.json()
@@ -12,19 +10,14 @@ export async function POST(request: Request) {
       )
     }
 
-    // Create transporter with Gmail
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
-    })
+    // Send email using Resend
+    const resend = (await import('resend')).Resend
+    const emailClient = new resend(process.env.RESEND_API_KEY)
 
-    // Email content
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
+    const result = await emailClient.emails.send({
+      from: 'noreply@justcream.site',
       to: 'logosbola@gmail.com',
+      replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -33,11 +26,15 @@ export async function POST(request: Request) {
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
-      replyTo: email,
-    }
+    })
 
-    // Send email
-    await transporter.sendMail(mailOptions)
+    if (result.error) {
+      console.error('Email error:', result.error)
+      return Response.json(
+        { error: 'Failed to send email' },
+        { status: 500 }
+      )
+    }
 
     return Response.json(
       { success: true, message: 'Email sent successfully' },
