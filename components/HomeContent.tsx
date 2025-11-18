@@ -179,7 +179,7 @@ export default function HomeContent({ parallaxImage, collections, campaignVideoU
           <AnimationWrapper delay={0.4}>
             <Link
               href="/collections"
-              className="inline-block px-12 py-6 bg-white text-accent hover:bg-transparent hover:border-2 hover:border-white hover:text-white label-text elegant-transition text-lg font-semibold border-2 border-white"
+              className="block md:inline-block px-12 py-6 bg-white text-accent hover:bg-transparent hover:border-2 hover:border-white hover:text-white label-text elegant-transition text-lg font-semibold border-2 border-white text-center md:text-left"
             >
               Shop The Collection
             </Link>
@@ -223,7 +223,7 @@ export default function HomeContent({ parallaxImage, collections, campaignVideoU
               <AnimationWrapper animation="fadeUp" delay={0.4}>
                 <Link
                   href="/bespoke"
-                  className="inline-block px-10 py-5 border-2 border-accent text-accent hover:bg-accent hover:text-white label-text elegant-transition"
+                  className="block md:inline-block px-10 py-5 border-2 border-accent text-accent hover:bg-accent hover:text-white label-text elegant-transition text-center md:text-left"
                 >
                   Learn More
                 </Link>
@@ -283,7 +283,7 @@ export default function HomeContent({ parallaxImage, collections, campaignVideoU
               <AnimationWrapper animation="fadeUp" delay={0.2}>
                 <Link
                   href="/collections"
-                  className="inline-block px-10 py-5 border-2 border-accent text-accent hover:bg-accent hover:text-white label-text elegant-transition"
+                  className="block md:inline-block px-10 py-5 border-2 border-accent text-accent hover:bg-accent hover:text-white label-text elegant-transition text-center md:text-left"
                 >
                   Discover Recovery
                 </Link>
