@@ -89,7 +89,7 @@ export default function Hero({
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="text-xs uppercase tracking-widest text-white/80 mb-4 flex items-center gap-3"
+            className="label-text text-white/80 mb-4 flex items-center gap-3"
           >
             <span className="w-12 h-px bg-white/60" />
             {label}
@@ -100,7 +100,7 @@ export default function Hero({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight max-w-4xl tracking-tight"
+          className="heading-lg text-white mb-6"
         >
           {title}
         </motion.h1>
@@ -110,7 +110,7 @@ export default function Hero({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
-            className="text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed"
+            className="body-lg text-white/90"
           >
             {subtitle}
           </motion.p>
