@@ -13,6 +13,7 @@ interface ContactFormData {
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const {
     register,
@@ -23,22 +24,50 @@ export default function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
+    setError('')
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
 
-    console.log('Form submitted:', data)
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    reset()
+      const result = await response.json()
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000)
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message')
+      }
+
+      console.log('Form submitted:', data)
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+      reset()
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred. Please try again.')
+      setIsSubmitting(false)
+    }
   }
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+        {/* Error Message */}
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-4 bg-red-50 border border-red-200 rounded text-red-700 text-sm"
+          >
+            {error}
+          </motion.div>
+        )}
+
         {/* Name */}
         <div>
           <label htmlFor="name" className="block label-text mb-3">
