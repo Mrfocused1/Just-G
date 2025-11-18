@@ -65,8 +65,8 @@ export default function Navbar() {
     { code: 'DE', name: 'Deutsch' },
   ]
 
-  // Check if we're on Shop, About, or Contact pages
-  const isSpecialPage = pathname === '/collections' || pathname === '/bespoke' || pathname === '/contact'
+  // Check if we're on Shop, About, Contact, or Product pages
+  const isSpecialPage = pathname === '/collections' || pathname === '/bespoke' || pathname === '/contact' || pathname.startsWith('/collections/')
 
   return (
     <motion.nav
