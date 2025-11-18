@@ -49,7 +49,7 @@ export default function HomeContent({ parallaxImage, collections, campaignVideoU
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <AnimationWrapper>
-              <h2 className="heading-lg mb-8">Luxury Body Care for Champions</h2>
+              <h2 className="heading-lg mb-8">Our Categories</h2>
             </AnimationWrapper>
             <AnimationWrapper delay={0.2}>
               <p className="body-lg text-primary/80 mb-12 max-w-4xl mx-auto">
