@@ -144,28 +144,27 @@ export default function HorizontalScrollSection({ collections }: HorizontalScrol
                 </div>
               </Link>
             ))}
-            </div>
+          </div>
 
-            {/* Scroll Progress Indicator */}
-            <div className="absolute bottom-[33px] left-1/2 -translate-x-1/2 z-20">
-              <div className="flex items-center gap-2">
-                {collections.map((_, index) => (
-                  <div
-                    key={index}
-                    className="h-1 bg-white/30 transition-all duration-300"
-                    style={{
-                      width: scrollProgress >= index / collections.length && scrollProgress < (index + 1) / collections.length
-                        ? '48px'
-                        : '12px',
-                      backgroundColor: scrollProgress > (index + 1) / collections.length
-                        ? 'rgba(45, 80, 22, 1)'
-                        : scrollProgress >= index / collections.length
-                        ? 'rgba(255, 255, 255, 0.8)'
-                        : 'rgba(255, 255, 255, 0.3)',
-                    }}
-                  />
-                ))}
-              </div>
+          {/* Scroll Progress Indicator */}
+          <div className="absolute bottom-[33px] left-1/2 -translate-x-1/2 z-20">
+            <div className="flex items-center gap-2">
+              {collections.map((_, index) => (
+                <div
+                  key={index}
+                  className="h-1 bg-white/30 transition-all duration-300"
+                  style={{
+                    width: scrollProgress >= index / collections.length && scrollProgress < (index + 1) / collections.length
+                      ? '48px'
+                      : '12px',
+                    backgroundColor: scrollProgress > (index + 1) / collections.length
+                      ? 'rgba(45, 80, 22, 1)'
+                      : scrollProgress >= index / collections.length
+                      ? 'rgba(255, 255, 255, 0.8)'
+                      : 'rgba(255, 255, 255, 0.3)',
+                  }}
+                />
+              ))}
             </div>
           </div>
         </div>
