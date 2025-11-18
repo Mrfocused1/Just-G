@@ -3,6 +3,7 @@ import HomePageWrapper from '@/components/HomePageWrapper'
 export default async function Home() {
   // Just Cream - Luxury Body Cream by Just Geen
   const heroImage = '/hero-image.webp'
+  const mobileHeroImage = '/hero-mobile.png'
   const parallaxImage = 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1920&q=80'
   const atelierImage = 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1080&q=80'
 
@@ -35,6 +36,7 @@ export default async function Home() {
     <HomePageWrapper
       heroVideoUrl={undefined}
       parallaxImage={heroImage}
+      mobileHeroImage={mobileHeroImage}
       collections={collections}
       campaignVideoUrl={undefined}
       atelierImage={atelierImage}

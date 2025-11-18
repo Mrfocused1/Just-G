@@ -15,6 +15,7 @@ interface Collection {
 interface HomePageWrapperProps {
   heroVideoUrl?: string
   parallaxImage?: string
+  mobileHeroImage?: string
   collections: Collection[]
   campaignVideoUrl?: string
   atelierImage?: string
@@ -23,6 +24,7 @@ interface HomePageWrapperProps {
 export default function HomePageWrapper({
   heroVideoUrl,
   parallaxImage,
+  mobileHeroImage,
   collections,
   campaignVideoUrl,
   atelierImage,
@@ -30,6 +32,7 @@ export default function HomePageWrapper({
   // Collect all assets to preload
   const imagesToPreload = [
     parallaxImage,
+    mobileHeroImage,
     atelierImage,
     ...collections.map(c => c.image),
   ].filter((url): url is string => Boolean(url))
@@ -53,6 +56,7 @@ export default function HomePageWrapper({
         <Hero
           videoSrc={heroVideoUrl}
           imageSrc={!heroVideoUrl ? parallaxImage : undefined}
+          mobileImageSrc={!heroVideoUrl ? mobileHeroImage : undefined}
           title="SCULPTED PERFECTION. REFINED LUXURY."
           subtitle="Just Cream. Luxury body care designed for champions. Nourish, sculpt, and glow."
           label="BY JUST GEEN"

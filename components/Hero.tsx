@@ -1,11 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface HeroProps {
   videoSrc?: string
   imageSrc?: string
+  mobileImageSrc?: string
   title: string
   subtitle?: string
   label?: string
@@ -17,6 +18,7 @@ interface HeroProps {
 export default function Hero({
   videoSrc,
   imageSrc,
+  mobileImageSrc,
   title,
   subtitle,
   label,
@@ -25,6 +27,7 @@ export default function Hero({
   currentSlide = 0
 }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     if (videoRef.current) {
@@ -33,6 +36,19 @@ export default function Hero({
       })
     }
   }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Use mobile image on mobile, desktop image on desktop
+  const displayImage = isMobile && mobileImageSrc ? mobileImageSrc : imageSrc
 
   return (
     <section className={`relative ${height} flex items-end overflow-hidden`}>
@@ -52,9 +68,9 @@ export default function Hero({
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
-        ) : imageSrc ? (
+        ) : displayImage ? (
           <img
-            src={imageSrc}
+            src={displayImage}
             alt={title}
             className="absolute inset-0 w-full h-full object-cover min-w-full min-h-full"
           />
@@ -79,46 +95,51 @@ export default function Hero({
             {label}
           </motion.p>
         )}
+
         <motion.h1
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-4xl font-sans font-light tracking-tight leading-none text-white mb-6 uppercase"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight max-w-4xl tracking-tight"
         >
           {title}
         </motion.h1>
+
         {subtitle && (
           <motion.p
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: 'easeOut' }}
-            className="body-md text-white/90 max-w-xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
+            className="text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed"
           >
             {subtitle}
           </motion.p>
         )}
-      </div>
 
-      {/* Swipe Indicators - Right Side */}
-      {totalSlides > 1 && (
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 1, ease: 'easeOut' }}
-          className="absolute right-8 md:right-12 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-3"
-        >
-          {Array.from({ length: totalSlides }).map((_, index) => (
-            <div
-              key={index}
-              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                index === currentSlide
-                  ? 'bg-white h-8'
-                  : 'bg-white/40 hover:bg-white/60'
-              }`}
-            />
-          ))}
-        </motion.div>
-      )}
+        {/* Slide Indicators */}
+        {totalSlides && totalSlides > 1 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="flex items-center gap-4 mt-12"
+          >
+            <span className="text-white/60 text-sm">
+              {String(currentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+            </span>
+            <div className="flex gap-2">
+              {Array.from({ length: totalSlides }).map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-1 transition-all duration-300 ${
+                    index === currentSlide ? 'w-8 bg-white' : 'w-2 bg-white/40'
+                  }`}
+                />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </div>
     </section>
   )
 }
