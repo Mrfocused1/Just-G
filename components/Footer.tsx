@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   const socialLinks = [
-    { name: 'Instagram', href: 'https://instagram.com/justgeenfitness' },
+    { name: 'Instagram', href: 'https://www.instagram.com/bolalogos/', external: true },
     { name: 'Pinterest', href: 'https://pinterest.com/justcream' },
     { name: 'YouTube', href: 'https://youtube.com/@justgeenfitness' },
   ]
@@ -70,9 +70,20 @@ export default function Footer() {
                   transition={{ delay: index * 0.05 }}
                   viewport={{ once: true }}
                 >
-                  <span className="body-sm text-primary/70 cursor-default elegant-transition">
-                    {social.name}
-                  </span>
+                  {social.external ? (
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="body-sm text-primary/70 hover:text-accent elegant-transition"
+                    >
+                      {social.name}
+                    </a>
+                  ) : (
+                    <span className="body-sm text-primary/70 cursor-default elegant-transition">
+                      {social.name}
+                    </span>
+                  )}
                 </motion.li>
               ))}
             </ul>
