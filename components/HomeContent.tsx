@@ -45,11 +45,11 @@ export default function HomeContent({ parallaxImage, collections, campaignVideoU
   return (
     <>
       {/* Introduction */}
-      <section className="py-24 lg:py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+      <section className="py-24 lg:py-32 px-0 lg:px-6">
+        <div className="max-w-7xl mx-auto lg:mx-auto mx-0">
+          <div className="text-center mb-16 px-6">
             <AnimationWrapper>
-              <h2 className="heading-lg mb-8">Our Categories</h2>
+              <h2 className="heading-lg mb-8">Collections</h2>
             </AnimationWrapper>
             <AnimationWrapper delay={0.2}>
               <p className="body-lg text-primary/80 mb-12 max-w-4xl mx-auto">
@@ -165,13 +165,13 @@ export default function HomeContent({ parallaxImage, collections, campaignVideoU
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-32 bg-accent text-center">
+      <section className="py-12 lg:py-32 bg-accent text-center">
         <div className="max-w-3xl mx-auto px-6">
           <AnimationWrapper>
-            <h2 className="heading-lg mb-8 text-white">Sculpt Your Luxury Routine</h2>
+            <h2 className="heading-md lg:heading-lg mb-6 lg:mb-8 text-white">Sculpt Your Luxury Routine</h2>
           </AnimationWrapper>
           <AnimationWrapper delay={0.2}>
-            <p className="body-lg text-white/90 mb-12">
+            <p className="body-md lg:body-lg text-white/90 mb-8 lg:mb-12">
               Discover the Just Cream collection designed for those who demand excellence.
               Championship-grade formulas to nourish, firm, and sculpt your skin with refined luxury.
             </p>
