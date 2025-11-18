@@ -49,7 +49,7 @@ export default function AboutContent({ designerImage, philosophyImage, atelierVi
               <AnimationWrapper animation="fadeUp" delay={0.2}>
                 <div className="space-y-6 body-md text-primary/80">
                   <p>
-                    Just Cream was born from London fitness influencer Just Geen's vision to create
+                    Just Cream was born from London fitness influencer Just Geen&apos;s vision to create
                     luxury body care that understands the demands of sculpted perfection. Every formula
                     is designed with championship-grade ingredients, celebrating those who demand
                     excellence both in and out of the gym.
@@ -57,7 +57,7 @@ export default function AboutContent({ designerImage, philosophyImage, atelierVi
                   <p>
                     Each product is meticulously crafted with the finest botanical extracts, nourishing
                     oils, and cutting-edge skincare technology. From post-workout recovery to daily
-                    indulgence, our collections are formulated exclusively to elevate your skin's
+                    indulgence, our collections are formulated exclusively to elevate your skin&apos;s
                     firmness, glow, and vitality.
                   </p>
                   <p>
@@ -94,9 +94,9 @@ export default function AboutContent({ designerImage, philosophyImage, atelierVi
                   </p>
                   <p>
                     Each product is formulated with championship-grade ingredients sourced from the
-                    world's finest suppliers. We combine cutting-edge skincare science with timeless
+                    world&apos;s finest suppliers. We combine cutting-edge skincare science with timeless
                     botanical wisdom, ensuring every application nourishes, firms, and sculpts your
-                    skin. Just Cream isn't just body care—it's a commitment to excellence in
+                    skin. Just Cream isn&apos;t just body care&mdash;it&apos;s a commitment to excellence in
                     everything you do.
                   </p>
                 </div>

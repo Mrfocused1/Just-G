@@ -101,74 +101,74 @@ export default function HorizontalScrollSection({ collections }: HorizontalScrol
         <CustomCursor isVisible={showCustomCursor} />
 
         <div className="sticky top-[85px] h-[calc(100vh-85px)] overflow-hidden bg-secondary">
-        {/* Horizontal Scroll Container */}
-        <div
-          ref={scrollRef}
-          className="flex h-full items-start overflow-x-hidden"
-          style={{ scrollBehavior: 'smooth', paddingTop: '2rem' }}
-        >
+          {/* Horizontal Scroll Container */}
+          <div
+            ref={scrollRef}
+            className="flex h-full items-start overflow-x-hidden"
+            style={{ scrollBehavior: 'smooth', paddingTop: '2rem' }}
+          >
+            {/* Collection Images */}
+            {collections.map((collection, index) => (
+              <Link
+                key={collection.slug}
+                href="/collections"
+                className="group flex-shrink-0 w-[90%] sm:w-[85%] md:w-[70vw] lg:w-[55vw] h-[calc(100%-14px)] mx-auto md:mx-3"
+                onMouseEnter={() => setShowCustomCursor(true)}
+                onMouseLeave={() => setShowCustomCursor(false)}
+              >
+                <div className="relative w-full h-full overflow-hidden bg-white shadow-2xl cursor-none">
+                  {/* Image with Luxury Loading */}
+                  {collection.image && (
+                    <div className="w-full h-full group-hover:scale-105 transition-transform duration-700">
+                      <ImageLoader
+                        src={collection.image}
+                        alt={collection.title}
+                        className="w-full h-full object-contain"
+                        aspectRatio="auto"
+                      />
+                    </div>
+                  )}
 
-          {/* Collection Images */}
-          {collections.map((collection, index) => (
-            <Link
-              key={collection.slug}
-              href="/collections"
-              className="group flex-shrink-0 w-[90%] sm:w-[85%] md:w-[70vw] lg:w-[55vw] h-[calc(100%-14px)] mx-auto md:mx-3"
-              onMouseEnter={() => setShowCustomCursor(true)}
-              onMouseLeave={() => setShowCustomCursor(false)}
-            >
-              <div className="relative w-full h-full overflow-hidden bg-white shadow-2xl cursor-none">
-                {/* Image with Luxury Loading */}
-                {collection.image && (
-                  <div className="w-full h-full group-hover:scale-105 transition-transform duration-700">
-                    <ImageLoader
-                      src={collection.image}
-                      alt={collection.title}
-                      className="w-full h-full object-contain"
-                      aspectRatio="auto"
-                    />
+                  {/* Overlay with Text at Bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-100 group-hover:opacity-90 transition-opacity duration-500" />
+
+                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <span className="label-text mb-3 block opacity-70">{collection.type} Collection</span>
+                    <h3 className="heading-md mb-3 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
+                      {collection.title}
+                    </h3>
+                    <p className="body-md opacity-90 max-w-md">
+                      {collection.description}
+                    </p>
                   </div>
-                )}
-
-                {/* Overlay with Text at Bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-100 group-hover:opacity-90 transition-opacity duration-500" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <span className="label-text mb-3 block opacity-70">{collection.type} Collection</span>
-                  <h3 className="heading-md mb-3 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-                    {collection.title}
-                  </h3>
-                  <p className="body-md opacity-90 max-w-md">
-                    {collection.description}
-                  </p>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* Scroll Progress Indicator */}
-        <div className="absolute bottom-[33px] left-1/2 -translate-x-1/2 z-20">
-          <div className="flex items-center gap-2">
-            {collections.map((_, index) => (
-              <div
-                key={index}
-                className="h-1 bg-white/30 transition-all duration-300"
-                style={{
-                  width: scrollProgress >= index / collections.length && scrollProgress < (index + 1) / collections.length
-                    ? '48px'
-                    : '12px',
-                  backgroundColor: scrollProgress > (index + 1) / collections.length
-                    ? 'rgba(45, 80, 22, 1)'
-                    : scrollProgress >= index / collections.length
-                    ? 'rgba(255, 255, 255, 0.8)'
-                    : 'rgba(255, 255, 255, 0.3)',
-                }}
-              />
+              </Link>
             ))}
+            </div>
+
+            {/* Scroll Progress Indicator */}
+            <div className="absolute bottom-[33px] left-1/2 -translate-x-1/2 z-20">
+              <div className="flex items-center gap-2">
+                {collections.map((_, index) => (
+                  <div
+                    key={index}
+                    className="h-1 bg-white/30 transition-all duration-300"
+                    style={{
+                      width: scrollProgress >= index / collections.length && scrollProgress < (index + 1) / collections.length
+                        ? '48px'
+                        : '12px',
+                      backgroundColor: scrollProgress > (index + 1) / collections.length
+                        ? 'rgba(45, 80, 22, 1)'
+                        : scrollProgress >= index / collections.length
+                        ? 'rgba(255, 255, 255, 0.8)'
+                        : 'rgba(255, 255, 255, 0.3)',
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   )

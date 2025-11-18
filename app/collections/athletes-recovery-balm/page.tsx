@@ -77,7 +77,7 @@ export default function AthletesRecoveryBalmPage() {
           </AnimationWrapper>
           <AnimationWrapper delay={0.2}>
             <p className="body-lg text-primary/80">
-              Every athlete knows the importance of proper recovery. Our Athlete's Recovery Balm combines
+              Every athlete knows the importance of proper recovery. Our Athlete&apos;s Recovery Balm combines
               championship-grade muscle-relief ingredients with a refreshing menthol-eucalyptus scent that
               invigorates and soothes tired muscles.
             </p>
