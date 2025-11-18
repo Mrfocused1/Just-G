@@ -276,7 +276,7 @@ export default function HomeContent({ parallaxImage, collections, campaignVideoU
                   and promotes deep tissue relief for optimal athletic performance.
                 </p>
                 <p className="body-md text-primary/80 mb-8">
-                  Whether you're an athlete pushing limits or someone seeking everyday muscle care, our luxury formulations
+                  Whether you&apos;re an athlete pushing limits or someone seeking everyday muscle care, our luxury formulations
                   deliver fast-absorbing relief that nourishes your skin while providing the muscle recovery support champions demand.
                 </p>
               </AnimationWrapper>

@@ -23,12 +23,12 @@ export default function AthletesRecoveryBalmPage() {
             <div>
               <AnimationWrapper>
                 <p className="label-text text-accent mb-4">Premium Body Care</p>
-                <h1 className="heading-lg mb-6">Athlete's Recovery Balm</h1>
+                <h1 className="heading-lg mb-6">Athlete&apos;s Recovery Balm</h1>
               </AnimationWrapper>
 
               <AnimationWrapper delay={0.2}>
                 <p className="body-lg text-primary/80 mb-8">
-                  Wrapped in the cool, refreshing scent of eucalyptus and peppermint, our Athlete's Recovery Balm
+                  Wrapped in the cool, refreshing scent of eucalyptus and peppermint, our Athlete&apos;s Recovery Balm
                   targets muscle tension and post-workout soreness. The invigorating green fragrance cools and soothes,
                   providing the relief champions deserve.
                 </p>

@@ -13,8 +13,8 @@ export default function ContactPage() {
             </AnimationWrapper>
             <AnimationWrapper delay={0.2}>
               <p className="body-lg text-primary/80 max-w-3xl mx-auto">
-                Whether you have a question, want to collaborate, or simply want to connect with Just Cream —
-                we'd love to hear from you. Get in touch with our team and let's create something extraordinary together.
+                Whether you have a question, want to collaborate, or simply want to connect with Just Cream &mdash;
+                we&apos;d love to hear from you. Get in touch with our team and let&apos;s create something extraordinary together.
               </p>
             </AnimationWrapper>
           </div>

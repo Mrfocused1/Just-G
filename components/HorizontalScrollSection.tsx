@@ -100,8 +100,7 @@ export default function HorizontalScrollSection({ collections }: HorizontalScrol
       <div ref={containerRef} className="relative" style={{ height: sectionHeight }}>
         <CustomCursor isVisible={showCustomCursor} />
 
-
-      <div className="sticky top-[85px] h-[calc(100vh-85px)] overflow-hidden bg-secondary">
+        <div className="sticky top-[85px] h-[calc(100vh-85px)] overflow-hidden bg-secondary">
         {/* Horizontal Scroll Container */}
         <div
           ref={scrollRef}

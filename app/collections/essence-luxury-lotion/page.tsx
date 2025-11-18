@@ -77,7 +77,7 @@ export default function EssenceLuxuryLotionPage() {
           </AnimationWrapper>
           <AnimationWrapper delay={0.2}>
             <p className="body-lg text-primary/80">
-              Our Essence Luxury Lotion proves that luxury doesn't have to be heavy. With its championship-grade
+              Our Essence Luxury Lotion proves that luxury doesn&apos;t have to be heavy. With its championship-grade
               formula and warm honey-vanilla fragrance, this lotion is your daily companion for soft, hydrated skin
               wrapped in comfort.
             </p>

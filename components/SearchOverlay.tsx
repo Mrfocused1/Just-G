@@ -167,7 +167,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                   animate={{ opacity: 1 }}
                   className="text-center py-20"
                 >
-                  <p className="body-lg text-primary/40">No results found for "{searchQuery}"</p>
+                  <p className="body-lg text-primary/40">No results found for &quot;{searchQuery}&quot;</p>
                   <p className="body-md text-primary/30 mt-2">Try searching with different keywords</p>
                 </motion.div>
               )}
